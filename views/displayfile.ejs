@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2P File Sharing App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <br><br>
+        <h1 class="text-center">
+            Your File is Ready to Download (Link will Expire in 24 hours)
+        </h1>
+        <br><br>
+        <h2 class="text-center">File Info</h2>
+        <br/>
+        <h3 class="text-center"><%=path%></h3>
+        <br><br>
+        <input type="text" value="<%=path%>" id="path" hidden/>
+        <div class="from-group container">
+            <button onclick="download()" class="btn btn-danger btn-block">Download File</button>
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    function download() {
+        window.open("/download?path=/public/uploads/"+$("#path").val());
+        location.reload();
+    }
+</script>
+</html>
